@@ -25,7 +25,6 @@ import org.opengis.referencing.operation.TransformException;
  * @author Eric
  */
 public class Area {
-	static FeatureSource source;
 
 	// Generic conversion method for different coordinates systems.
 	public double[] convertCRS(CoordinateReferenceSystem sourceCrs, CoordinateReferenceSystem targetCrs, double x, double y) throws NoSuchAuthorityCodeException, FactoryException, MismatchedDimensionException, TransformException
@@ -59,7 +58,7 @@ public class Area {
 
 		File file = new File("resources/lariac_buildings_2008.shp");
 		FileDataStore store = FileDataStoreFinder.getDataStore(file);
-		source = store.getFeatureSource();
+		FeatureSource source = store.getFeatureSource();
 
 		FilterFactory2 ff = CommonFactoryFinder.getFilterFactory2();
 		FeatureType schema = source.getSchema();
